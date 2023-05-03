@@ -1,0 +1,159 @@
+@import '../mixins';
+
+.rates {
+  position: relative;
+  min-height: 84.8rem;
+  padding-top: 16.9rem;
+  &,
+  &__list {
+    @include flex-center-y();
+    flex-direction: column;
+  }
+  &__btn,
+  &__title,
+  &__desc {
+    position: relative;
+    z-index: 2;
+  }
+  &__title,
+  &__desc,
+  &__btn * {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+  }
+  &__title,
+  &__desc {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.4rem;
+    color: var(--green);
+  }
+  &__title {
+    margin-bottom: 6rem;
+  }
+  &__list {
+    padding-bottom: 5.8rem;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 9.8rem;
+    &,
+    & * {
+      font-size: 8rem;
+      font-weight: 400;
+      line-height: 9.8rem;
+    }
+    &-word {
+      display: inline-flex;
+      &:last-child {
+        color: var(--green);
+        & .rates__btn-letter {
+          opacity: 0;
+        }
+      }
+    }
+    &-letter {
+      opacity: 1;
+      transform: translateY(0);
+      @include transitions((opacity, transform));
+    }
+    &.active {
+      & .rates__btn-word {
+        &:first-child {
+          & .rates__btn-letter {
+            opacity: 0;
+          }
+        }
+      }
+      & .rates__btn-letter {
+        opacity: 1;
+        transform: translateY(-100%);
+      }
+    }
+  }
+  &__img {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    @include transition(max-height, 0rem);
+    &-box {
+      &[data-tab='light'] {
+        & .rates__img {
+          &-1 {
+            top: 0;
+            left: 4.6rem;
+          }
+          &-2 {
+            bottom: 0;
+            left: 24.6rem;
+          }
+          &-3 {
+            top: 20.7rem;
+            right: 16.8rem;
+          }
+        }
+      }
+      &[data-tab='classic'] {
+        & .rates__img {
+          &-1 {
+            top: 0;
+            right: 4.6rem;
+          }
+          &-2 {
+            bottom: 0;
+            right: 24.6rem;
+          }
+          &-3 {
+            top: 20.7rem;
+            left: 16.8rem;
+          }
+        }
+      }
+      &[data-tab='gourmet'] {
+        & .rates__img {
+          &-1 {
+            bottom: 0;
+            left: 4.6rem;
+          }
+          &-2 {
+            bottom: 0;
+            right: 24.6rem;
+          }
+          &-3 {
+            top: 20.7rem;
+            left: 20rem;
+          }
+        }
+      }
+      &.active {
+        & .rates__img {
+          &-1 {
+            max-height: 36rem;
+          }
+          &-2 {
+            max-height: 18.4rem;
+          }
+          &-3 {
+            max-height: 14.35rem;
+          }
+        }
+      }
+    }
+    &-1 {
+      @include picture(32.8rem, 100%);
+    }
+    &-2 {
+      @include picture(19.3rem, 100%);
+    }
+    &-3 {
+      @include picture(21.9rem, 100%);
+    }
+  }
+}

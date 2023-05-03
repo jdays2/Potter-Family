@@ -1,0 +1,198 @@
+@import '../mixins';
+
+.hero {
+  margin-bottom: 14.4rem;
+  &__title,
+  &__desc,
+  &__desc *,
+  &__content-desc * {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+  &__banner {
+    position: relative;
+    overflow: hidden;
+    @include block-size(100%, 105.7rem);
+    max-width: 192rem;
+    top: -15rem;
+  }
+  &__box {
+    &-inner,
+    &-outer {
+      @include flex-center-center();
+      position: absolute;
+      @include block-size(100%);
+    }
+    &-inner {
+      overflow: hidden;
+      top: 50%;
+      z-index: 20;
+      max-height: 12rem;
+      transform: translateY(-64%);
+      transition-property: max-height, transform;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+      & video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @include block-size(100%);
+        object-fit: cover;
+      }
+      & .hero__desc {
+        transform: translateY(1.7rem);
+        & span {
+          color: var(--white);
+        }
+      }
+      & .hero__desc-word-4 a {
+        border-color: var(--white);
+        &::after {
+          background-color: var(--white);
+        }
+        & svg > path {
+          stroke: var(--white);
+        }
+        &:hover,
+        &:active {
+          & svg > path {
+            stroke: var(--black);
+          }
+        }
+      }
+      &.active {
+        transform: translateY(-50%);
+        max-height: 105.7rem;
+        &,
+        .hero__desc span {
+          transition-delay: 1s;
+        }
+        & .hero__desc span {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  &__title {
+    position: absolute;
+    bottom: 8.5rem;
+    left: 18rem;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  &__desc {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    z-index: 5;
+    padding-bottom: 4rem;
+    &,
+    & span {
+      text-align: center;
+      font-weight: 400;
+      font-size: 14.3rem;
+      line-height: 16.5rem;
+      transition-property: transform;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+    }
+    &-word {
+      &-1 {
+        transform: translateX(-26.5rem);
+      }
+      &-2 {
+        transform: translateX(-13.7rem);
+      }
+      &-3 {
+        transform: translateX(7.2rem);
+      }
+      &-4 {
+        justify-content: center;
+        transform: translateX(7.9rem);
+        &,
+        & a {
+          display: inline-flex;
+          align-items: center;
+        }
+        & a {
+          position: relative;
+          justify-content: center;
+          @include block-size(14rem);
+          margin-right: 5rem;
+          border: 1px solid var(--black);
+          &,
+          &::after {
+            border-radius: 100%;
+          }
+          &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            z-index: 1;
+            @include block-size(100%);
+            background-color: var(--black);
+            @include transition(transform, scale(0));
+          }
+          & svg {
+            position: relative;
+            @include block-size(4.9rem, 4.4rem);
+            z-index: 2;
+            & > path {
+              @include transition(stroke);
+            }
+          }
+          &:hover,
+          &:active {
+            &::after {
+              transform: scale(1);
+            }
+            & svg > path {
+              stroke: var(--white);
+            }
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    position: relative;
+    top: -9.5rem;
+    &-list,
+    &-desc,
+    &-item {
+      @include flex-center-y();
+    }
+    &-item {
+      &:not(:last-child) {
+        &::after {
+          display: block;
+          content: '';
+          @include block-size(6rem, 0.1rem);
+          margin: 0 3.2rem;
+          background-color: var(--black);
+        }
+      }
+    }
+    &-desc {
+      width: 100%;
+      max-width: 39.1rem;
+      & span {
+        &:first-child {
+          margin-right: 1.2rem;
+          font-size: 8rem;
+          font-weight: 400;
+          line-height: 9.8rem;
+        }
+        &:last-child {
+          font-size: 2rem;
+          font-weight: 500;
+          line-height: 2.4rem;
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}

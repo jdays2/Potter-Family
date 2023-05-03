@@ -1,0 +1,51 @@
+.header {
+  position: relative;
+  z-index: 50;
+  padding: 2rem 0;
+  background-color: var(--white);
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__nav-list,
+  &__box-right {
+    @include flex-center-y();
+  }
+  &__nav-link,
+  &__tel {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  &__nav-item:not(:last-child),
+  &__tel {
+    margin-right: 3rem;
+  }
+  &__logo {
+    @include block-size(27.3rem, 11.1rem);
+    & img {
+      @include picture(inherit);
+    }
+  }
+  &__nav {
+    padding: 1.2rem 4rem 0 0;
+    &-close,
+    &-tel {
+      display: none;
+    }
+    &-link {
+      text-transform: uppercase;
+    }
+  }
+  &__box-right {
+    padding-top: 1rem;
+  }
+  &__basket {
+    @include block-size(2.8rem);
+    & svg {
+      @include block-size(inherit);
+    }
+  }
+}

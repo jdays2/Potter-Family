@@ -1,0 +1,75 @@
+.choice {
+  position: relative;
+  margin-top: 24rem;
+  min-height: 72.7rem;
+  &__title,
+  &__card-title {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+  }
+  &__title {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 17.5rem 0 9.5rem;
+    font-size: 14.3rem;
+    font-weight: 400;
+    line-height: 17.4rem;
+    & span {
+      &:last-child {
+        padding-left: 24.5rem;
+      }
+    }
+  }
+  &__desc {
+    margin: 0 14rem 0 auto;
+    width: 100%;
+    max-width: 49.5rem;
+  }
+  &__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include block-size(100%);
+  }
+  &__card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    perspective: 1000px;
+    width: 100%;
+    max-width: 33rem;
+    max-height: 20.8rem;
+    padding: 2rem 3rem;
+    box-shadow: 15px 15px 50px rgba(87, 87, 87, 0.08);
+    @include transition(transform);
+    &-1 {
+      transform: rotate(-4.1deg);
+      top: 2.6rem;
+      left: 11.9rem;
+      &:hover {
+        transform: rotate3d(4deg);
+      }
+    }
+    &-2 {
+      transform: rotate(6.03deg);
+      top: 5.7rem;
+      right: 47.7rem;
+    }
+    &-3 {
+      transform: rotate(-2.4deg);
+      bottom: 0.8rem;
+      left: 38.2rem;
+    }
+    &-4 {
+      transform: rotate(-4.7deg);
+      bottom: 18.8rem;
+      right: 23.6rem;
+    }
+    &-title {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+    }
+  }
+}

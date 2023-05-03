@@ -1,0 +1,137 @@
+@import '../mixins';
+
+.reviews {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 192rem;
+  min-height: 125.7rem;
+  padding-top: 11.5rem;
+  padding-bottom: 20rem;
+  background-image: url('../img/reviews/1.webp');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__desc {
+    position: absolute;
+    white-space: nowrap;
+    top: 49.5rem;
+    left: 0;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 21rem;
+    line-height: 25.6rem;
+    color: var(--white);
+    animation: marquee 3.5s infinite linear;
+    &::after {
+      content: '\20'attr(data-content);
+    }
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__link {
+    display: block;
+    margin: 0 18.1rem 0 auto;
+    width: max-content;
+    padding: 1.1rem 2.4rem;
+    border: 0.1rem solid var(--white);
+    border-radius: 3rem;
+    color: var(--white);
+  }
+  &__slider {
+    padding: 6.7rem 0 7rem 64.5rem;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    max-width: 63rem;
+    min-height: 76.2rem;
+    padding: 8rem 3.5rem 3rem;
+    background-color: var(--yellow-light);
+    @include transition(transform, rotate(0));
+    &.swiper-slide-next {
+      transform: rotate(-15deg);
+    }
+    &.swiper-slide-prev {
+      transform: rotate(15deg);
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 2.5em;
+      left: 50%;
+      opacity: 0.5;
+      @include block-size(8rem, 0.96rem);
+      border-radius: 100px;
+      background-color: var(--black);
+      transform: translateX(-50%);
+    }
+    &-box {
+      &-rating {
+        display: flex;
+        justify-content: space-between;
+        border-top: 0.1rem solid var(--black);
+      }
+    }
+    &-user {
+      display: block;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      &,
+      &-desc {
+        font-family: 'Montserrat';
+        text-transform: uppercase;
+      }
+      &-desc {
+        width: 100%;
+        max-width: 49.5rem;
+        font-size: 6rem;
+        font-weight: 400;
+        line-height: 7.3rem;
+      }
+    }
+    &-desc {
+      width: 100%;
+      max-width: 55rem;
+      margin-bottom: 3.5rem;
+      font-size: 2rem;
+      line-height: 120%;
+    }
+    &-link {
+      display: block;
+      margin: 3rem 0 0;
+      height: 3.9rem;
+      border: 1px solid var(--black);
+      border-radius: 30px;
+      padding: 1rem 7.5rem;
+    }
+    &-stars {
+      @include flex-center-y();
+      flex-basis: 50%;
+      height: 8.9rem;
+      padding-left: 3.6rem;
+      border-left: 0.1rem solid var(--black);
+      & svg {
+        @include block-size(3.2rem, 2.9rem);
+        margin-top: 0.5rem;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+        &.active > path {
+          fill-opacity: 1;
+        }
+      }
+    }
+  }
+}

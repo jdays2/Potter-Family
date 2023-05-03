@@ -1,0 +1,83 @@
+@import '../mixins';
+
+.formats {
+  padding-top: 24rem;
+  padding-bottom: 22.4rem;
+  &__title,
+  &__card-title {
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: 400;
+  }
+  &__title {
+    margin-bottom: 8rem;
+    font-size: 14.3rem;
+    line-height: 17.4rem;
+  }
+  &__slider {
+    min-height: 81.9rem;
+    padding-left: 18rem;
+    & * {
+      user-select: none;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 21.4rem;
+      left: 0;
+      @include block-size(100%, 8rem);
+      background-color: var(--orange);
+    }
+  }
+  &__card {
+    &-1,
+    &-4 {
+      max-width: 40.8rem;
+    }
+    &-2,
+    &-5 {
+      max-width: 61.7rem;
+    }
+    &-3,
+    &-6 {
+      max-width: 48.1rem;
+    }
+    &-img {
+      &-box {
+        display: block;
+        margin-bottom: 2.45rem;
+      }
+      &-1,
+      &-4 {
+        @include picture(100%, 55.1rem);
+      }
+      &-2,
+      &-5 {
+        @include picture(100%, 41.6rem);
+      }
+      &-3,
+      &-6 {
+        @include picture(100%, 60.4rem);
+      }
+    }
+    &-title {
+      width: 100%;
+      max-width: 44rem;
+      margin-bottom: 1.2rem;
+      font-size: 4rem;
+      line-height: 4.9rem;
+    }
+    &-desc {
+      width: 100%;
+      max-width: 34rem;
+      margin-bottom: 3.15rem;
+    }
+    &-btn {
+      display: inline-block;
+      padding: 1.1rem 2.4rem;
+      border: 0.1rem solid var(--black);
+      border-radius: 3rem;
+      @include transitions((border-color, background-color));
+    }
+  }
+}
