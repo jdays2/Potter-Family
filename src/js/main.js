@@ -8,13 +8,13 @@ const bannerVideo = document.getElementById('banner-video');
 
 const observerBanner = new IntersectionObserver(
   ([entry]) => {
-    // if (entry.isIntersecting) {
-    //   bannerBox.classList.add('active');
-    //   bannerVideo.play();
-    // } else {
-    //   bannerBox.classList.remove('active');
-    //   bannerVideo.pause();
-    // }
+    if (entry.isIntersecting) {
+      bannerBox.classList.add('active');
+      bannerVideo.play();
+    } else {
+      bannerBox.classList.remove('active');
+      bannerVideo.pause();
+    }
   },
   {
     threshold: [0.4],
