@@ -1,0 +1,28 @@
+footer.footer.container 
+  .footer__box-top 
+    a(href="main.html", aria-label="Логотип").header__logo
+      img(src="img/logo.png", alt="Potter Family")
+    nav.footer__nav
+      h3.footer__nav-title Меню 
+      ul.footer__nav-list 
+
+        each item in [{name: "Главная", href: "main.html"}, {name: "Услуги", href: "services.html"}, {name: "Портфолио", href: "portfolio.html"}, {name: "О нас", href: "about.html"}, {name: "Контакты", href: "contacts.html"}]
+          li.footer__nav-item
+            a(href= item.href).footer__nav-link= item.name
+    ul.footer__contact-list 
+
+      each item in [{id: "tel", title: "телефон", desc: "+7 (499) 136-29-23"}, {id: "mail", title: "сотрудничество", desc: "info@potterfamily.ru"}, {id: "address", title: "Адрес", desc: "РФ, г. Москва, ул. Тимирязевская, 1 пн-пт: 09:00 - 19:00"}]
+        li.footer__contact-item 
+          h3.footer__contact-title= item.title 
+          if item.id === 'address'
+            address.footer__contact-desc= item.desc
+          else 
+            a(href= item.id === 'tel' ? 'tel:+' + item.desc.replace(/[^0-9]/g, '') : 'mailto:' + item.desc).footer__contact-desc= item.desc
+  .footer__box-bottom 
+    a(href="#").footer__link-policy Политика конфиденциальности
+    ul.footer__socials-list
+
+      each item in [{name: "Facebook", href: ""}, {name: "Instagram", href: ""}, {name: "Youtube", href: ""}, {name: "Vk", href: ""}] 
+        li.footer__socials-item
+          a(href= item.href).footer__socials-link= item.name 
+    strong.footer__copyright © 2007 - 2023 Potterfamily

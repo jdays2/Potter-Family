@@ -1,0 +1,172 @@
+@import '../mixins';
+
+.back-call {
+  position: relative;
+  margin-bottom: 24rem;
+  padding-top: 4.5rem;
+  background-color: var(--orange);
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include block-size(100%, 4.5rem);
+    border-bottom: 0.1rem solid var(--white);
+    background-color: var(--orange);
+  }
+  &__title,
+  &__form-title {
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: 400;
+  }
+  &__container {
+    display: flex;
+    border-width: 0 0.1rem;
+    border-style: solid;
+    border-color: var(--white);
+  }
+  &__box {
+    &-left,
+    &-right {
+      flex-basis: 50%;
+    }
+    &-left {
+      padding: 7.5rem 13.1rem 12.3rem 13.3rem;
+      border-right: 0.1rem solid var(--white);
+      & * {
+        color: var(--white);
+      }
+    }
+    &-right {
+      padding: 5.2rem 13.2rem 8rem 12.8rem;
+    }
+  }
+  &__title {
+    margin-bottom: 1.5rem;
+    font-size: 8rem;
+    line-height: 9.8rem;
+  }
+  &__desc {
+    margin-bottom: 4.6rem;
+  }
+  &__contacts {
+    &-list {
+      padding: 3.8rem 3.8rem 4rem;
+      border: 2px solid var(--white);
+    }
+    &-item {
+      @include flex-center-y();
+      & span {
+        @include flex-center-center();
+        @include block-size(5rem);
+        margin-right: 1.5rem;
+        border-radius: 100%;
+        background-color: var(--white);
+        & svg {
+          @include block-size(2.2rem);
+        }
+      }
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+    }
+    &-desc {
+      margin-top: 0.4rem;
+      font-style: normal;
+    }
+  }
+  &__form {
+    @include flex-center-y();
+    flex-direction: column;
+    position: relative;
+    padding: 2.8rem 5.9rem 2.7rem 6rem;
+    background-color: var(--white);
+    box-shadow: 7px 7px 12px rgba(87, 87, 87, 0.08);
+    &:before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      @include block-size(100%, 1rem);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='383px' height='34px' viewBox='0 0 383 34'%3E%3Cpath fill='%23fff' d='M 336.257812 33.644531 C 321.945312 33.644531 314.664062 26.972656 308.246094 21.089844 C 302.433594 15.78125 297.84375 11.585938 288.050781 11.585938 C 278.257812 11.585938 273.664062 15.78125 267.855469 21.089844 C 261.433594 26.972656 254.152344 33.644531 239.839844 33.644531 C 225.5625 33.644531 218.246094 26.972656 211.824219 21.089844 C 206.015625 15.78125 201.460938 11.585938 191.667969 11.585938 C 181.839844 11.585938 177.28125 15.78125 171.472656 21.089844 C 165.050781 26.972656 157.769531 33.644531 143.457031 33.644531 C 129.144531 33.644531 121.863281 26.972656 115.441406 21.089844 C 109.632812 15.78125 105.039062 11.585938 95.246094 11.585938 C 85.457031 11.585938 80.863281 15.78125 75.089844 21.089844 C 68.632812 26.972656 61.351562 33.644531 47.039062 33.644531 C 32.761719 33.644531 25.480469 26.972656 19.023438 21.089844 C 13.25 15.78125 8.65625 11.585938 -1.136719 11.585938 C -4.363281 11.585938 -6.945312 9.003906 -6.945312 5.8125 C -6.945312 2.582031 -4.363281 0 -1.136719 0 C 13.140625 0 20.457031 6.671875 26.878906 12.554688 C 32.691406 17.863281 37.246094 22.058594 47.039062 22.058594 C 56.867188 22.058594 61.421875 17.863281 67.234375 12.554688 C 73.652344 6.671875 80.9375 0 95.246094 0 C 109.558594 0 116.839844 6.671875 123.261719 12.554688 C 129.074219 17.863281 133.664062 22.058594 143.457031 22.058594 C 153.25 22.058594 157.839844 17.863281 163.652344 12.554688 C 170.074219 6.671875 177.355469 0 191.667969 0 C 205.941406 0 213.222656 6.671875 219.679688 12.554688 C 225.457031 17.863281 230.046875 22.058594 239.839844 22.058594 C 249.632812 22.058594 254.222656 17.863281 260.035156 12.554688 C 266.457031 6.671875 273.738281 0 288.050781 0 C 302.363281 0 309.644531 6.671875 316.0625 12.554688 C 321.875 17.863281 326.464844 22.058594 336.257812 22.058594 C 346.050781 22.058594 350.644531 17.863281 356.453125 12.554688 C 362.875 6.671875 370.15625 0 384.46875 0 C 387.660156 0 390.277344 2.582031 390.277344 5.8125 C 390.277344 9.003906 387.660156 11.585938 384.46875 11.585938 C 374.675781 11.585938 370.085938 15.78125 364.273438 21.089844 C 357.851562 26.972656 350.570312 33.644531 336.257812 33.644531 Z M 336.257812 33.644531 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 0.273438 24.367188 L 423.78125 24.367188 L 423.78125 53.84375 L 0.273438 53.84375 Z M 0.273438 24.367188 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 26.585938 18.226562 C 26.585938 12.316406 18.105469 7.527344 7.640625 7.527344 C -2.824219 7.527344 -11.308594 12.316406 -11.308594 18.226562 C -11.308594 24.136719 -2.824219 28.929688 7.640625 28.929688 C 18.105469 28.929688 26.585938 24.136719 26.585938 18.226562 Z M 26.585938 18.226562 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 119.921875 19.984375 C 119.921875 14.070312 109.082031 9.28125 95.710938 9.28125 C 82.339844 9.28125 71.5 14.070312 71.5 19.984375 C 71.5 25.894531 82.339844 30.683594 95.710938 30.683594 C 109.082031 30.683594 119.921875 25.894531 119.921875 19.984375 Z M 119.921875 19.984375 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 217.816406 19.28125 C 217.816406 13.371094 206.035156 8.578125 191.5 8.578125 C 176.964844 8.578125 165.183594 13.371094 165.183594 19.28125 C 165.183594 25.191406 176.964844 29.984375 191.5 29.984375 C 206.035156 29.984375 217.816406 25.191406 217.816406 19.28125 Z M 217.816406 19.28125 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 314.308594 19.632812 C 314.308594 13.722656 302.367188 8.929688 287.640625 8.929688 C 272.914062 8.929688 260.972656 13.722656 260.972656 19.632812 C 260.972656 25.542969 272.914062 30.332031 287.640625 30.332031 C 302.367188 30.332031 314.308594 25.542969 314.308594 19.632812 Z M 314.308594 19.632812 ' /%3E%3Cpath fill='%23fff' stroke='%23fff' d='M 396.0625 18.578125 C 396.0625 12.667969 387.578125 7.878906 377.113281 7.878906 C 366.648438 7.878906 358.167969 12.667969 358.167969 18.578125 C 358.167969 24.488281 366.648438 29.28125 377.113281 29.28125 C 387.578125 29.28125 396.0625 24.488281 396.0625 18.578125 Z M 396.0625 18.578125 ' /%3E%3C/svg%3E");
+      background-size: 7.5rem 1rem;
+      background-position: -1.1rem;
+    }
+    &:before {
+      top: -0.7rem;
+    }
+    &::after {
+      bottom: -0.7rem;
+      transform: rotateX(180deg);
+    }
+    &-title {
+      margin-bottom: 0.9rem;
+      font-size: 4rem;
+      line-height: 4.9rem;
+    }
+    &-desc {
+      margin-bottom: 2.5rem;
+    }
+    &-ellipsis {
+      @include block-size(42.2rem, 0.8rem);
+    }
+    &-list {
+      width: 100%;
+      padding: 3.4rem 0 3.5rem;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 2.9rem;
+      }
+    }
+    &-label {
+      cursor: pointer;
+      display: block;
+      position: relative;
+      & span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        transform: translateY(2.8rem);
+        @include transition(all);
+      }
+    }
+    &-input {
+      @include block-size(100%, 6.2rem);
+      border-bottom: 0.1rem solid var(--black);
+      padding-top: 2.8rem;
+      padding-bottom: 1.5rem;
+      color: rgba(67, 66, 72, 0.5);
+      &::placeholder {
+        color: transparent;
+      }
+      &:focus + span {
+        font-size: 1.4rem;
+        line-height: 1.3rem;
+        transform: translateY(0);
+      }
+    }
+    &-box {
+      display: flex;
+      align-items: flex-start;
+      padding: 3.55rem 0 3.5rem;
+    }
+    &-btn {
+      margin-right: 2.45rem;
+      padding: 0.9rem 2.45rem;
+      border: 0.1rem solid var(--black);
+      border-radius: 3rem;
+      &-desc {
+        opacity: 0.5;
+      }
+    }
+    &-barcode {
+      margin-top: 2.5rem;
+      @include block-size(37.7rem, 6.7rem);
+    }
+  }
+}

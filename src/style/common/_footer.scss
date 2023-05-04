@@ -1,0 +1,65 @@
+.footer {
+  &__box {
+    &-top,
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+      border-top: 0.1rem solid rgba(67, 66, 72, 0.5);
+    }
+    &-top {
+      padding: 4.05rem 14.65rem 16.15rem 0;
+    }
+    &-bottom {
+      padding: 3.95rem 0 4rem;
+    }
+  }
+  &__nav-title,
+  &__contact-title {
+    text-transform: uppercase;
+    margin-bottom: 1.95rem;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  &__nav-link,
+  &__contact-desc,
+  &__link-policy,
+  &__socials-link,
+  &__copyright {
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  &__nav-link,
+  &__contact-desc {
+    opacity: 0.5;
+    width: 100%;
+    max-width: 34.8rem;
+  }
+  &__nav {
+    padding-left: 10.2rem;
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  &__contact-item {
+    &:not(:last-child) {
+      margin-bottom: 5rem;
+    }
+  }
+  &__socials {
+    &-list {
+      @include flex-center-y();
+      padding-left: 13rem;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+}

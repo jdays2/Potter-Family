@@ -10,7 +10,7 @@
     left: 1.5rem;
     width: 100%;
     max-width: 117rem;
-    margin: 0 auto 12.1rem;
+    margin: 0px auto 8.2rem;
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 14.3rem;
@@ -40,14 +40,16 @@
   &__slider {
     &-box {
       position: relative;
-      border-top: 0.1rem solid var(--white);
       background-color: var(--orange);
+      padding-top: 4rem;
       &::after {
         position: absolute;
         content: '';
-        top: -4.1rem;
+        top: 0;
         left: 0;
-        @include block-size(100%);
+        z-index: 1;
+        @include block-size(100%, 4rem);
+        border-bottom: 0.1rem solid var(--white);
         background-color: var(--orange);
       }
     }
@@ -246,7 +248,7 @@
     font-weight: 400;
     line-height: 100%;
     color: var(--orange);
-    animation: marquee 5s infinite linear;
+    animation: marquee 15s infinite linear;
     @include transition(opacity, 0);
     &::after {
       content: '\20'attr(data-content);

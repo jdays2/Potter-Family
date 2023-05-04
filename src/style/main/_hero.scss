@@ -166,6 +166,7 @@
       @include flex-center-y();
     }
     &-item {
+      width: auto;
       &:not(:last-child) {
         &::after {
           display: block;
@@ -191,6 +192,82 @@
           font-weight: 500;
           line-height: 2.4rem;
           opacity: 0.4;
+        }
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    &__banner {
+      top: -15rem;
+      height: 100.7rem;
+    }
+    &__box-inner {
+      max-height: 8rem;
+      transform: translateY(-70%);
+    }
+    &__title {
+      bottom: 1rem;
+      left: 3.2rem;
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
+    &__desc {
+      padding-bottom: 2.6rem;
+      &,
+      & span {
+        font-size: 7rem;
+        line-height: 8.6rem;
+      }
+      &-word {
+        &-1 {
+          margin-bottom: 1.53rem;
+          transform: translateX(-8.8rem);
+        }
+        &-2 {
+          margin-bottom: 1.816rem;
+          transform: translateX(-2rem);
+        }
+        &-3 {
+          margin-bottom: 1.892rem;
+          transform: translateX(0.8rem);
+        }
+        &-4 {
+          transform: translateX(6.9rem);
+          & a {
+            display: none;
+          }
+        }
+      }
+    }
+    &__content {
+      top: -13.9rem;
+      padding-right: 0;
+      &-item {
+        // &:first-child {
+        //   order: -2;
+        // }
+        // &:last-child {
+        //   order: -1;
+        // }
+        &:not(:last-child) {
+          &::after {
+            @include block-size(2rem, 0.1rem);
+            margin: 0 3.2rem 0.8rem 0.8rem;
+          }
+        }
+      }
+      &-desc {
+        max-width: 43rem;
+        & span {
+          &:first-child {
+            margin-right: 2rem;
+            font-size: 5.2rem;
+            line-height: 6.4rem;
+          }
+          &:last-child {
+            font-size: 3.2rem;
+            line-height: 4rem;
+          }
         }
       }
     }

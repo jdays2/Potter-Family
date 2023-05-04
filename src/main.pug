@@ -48,15 +48,15 @@ html(lang="ru")
                   +icon('arrow-main')
                 | ПИТАНИЕ
         .hero__content.container
-          ul.hero__content-list 
-
-            each item in [{count: '1000', desc: 'ДОВОЛЬНЫХ КЛИЕНТОВ'}, {count: '500', desc: 'СЦЕНАРИЕВ МЕРОПРИЯТИЙ'}, {count: '100', desc: 'СОТРУДНИКОВ РАБОТАЕТ У НАС'}]
-              li.hero__content-item 
-                strong.hero__content-desc 
-                  span
-                    = item.count
-                    | +
-                  span= item.desc
+          ul.hero__content-list.swiper 
+            .swiper-wrapper
+              each item in [{count: '1000', desc: 'ДОВОЛЬНЫХ КЛИЕНТОВ'}, {count: '500', desc: 'СЦЕНАРИЕВ МЕРОПРИЯТИЙ'}, {count: '100', desc: 'СОТРУДНИКОВ РАБОТАЕТ У НАС'}]
+                li.hero__content-item.swiper-slide 
+                  strong.hero__content-desc 
+                    span
+                      = item.count
+                      | +
+                    span= item.desc
 
       section.rates.container 
         h2.rates__title ТАРИФЫ
@@ -171,9 +171,51 @@ html(lang="ru")
           .swiper-wrapper
 
             each card, index in [{title: 'Качественное обслуживание', desc: 'Организация мероприятий и доставка блюд происходят точно в срок', color: '#c0eed6'}, {title: 'МЕРОПРИЯТИЕ ПОД КЛЮЧ', desc: 'Организуем мероприятие под ключ — от площадки, ведущего, диджея и декора до клининга.', color: '#FFF3E6'}, {title: 'БОЛЬШОЙ ВЫБОР БЛЮД', desc: 'Организация мероприятий и доставка блюд происходят точно в срок', color: '#FFE5E3'}, {title: 'САМЫЕ ПРИЯТНЫЕ ЦЕНЫ', desc: 'Вы останетесь приятно удивлены, как возможно вкусно и незатратно провести время', color: '#D3D1DC'}]
-              .choice__card.swiper-slide(class=`choice__card-${index + 1}` style=`background-color: ${card.color}`)
+              .choice__card.swiper-slide(style= "background-color:" + card.color, class=`choice__card-${index + 1}` )
                 h3.choice__card-title= card.title
                 p.choice__card-desc= card.desc
+      
+      section.back-call
+        .back-call__container.container 
+          .back-call__box-left
+            h2.back-call__title ЗАКАЖИТЕ ОБРАТНЫЙ ЗВОНОК
+            p.back-call__desc И мы вам перезвоним в течении 15 минут!
+            ul.back-call__contacts-list
+
+              each item in [{id: 'location', desc: 'Москва, улица 1905 года, д, 121'}, {id: 'tel', desc: '+7 (999) 999-99-99'}, {id: 'mail', desc: 'example@mail.com'}]
+                li.back-call__contacts-item
+                  span
+                    +icon(item.id)
+                  if item.id === 'location'
+                    address.back-call__contacts-desc= item.desc
+                  else 
+                    a(href= item.id === 'tel' ? 'tel:+' + item.desc.replace(/[^0-9]/g, '') : 'mailto:' + item.desc).back-call__contacts-desc= item.desc
+
+          .back-call__box-right
+            form.back-call__form
+              h3.back-call__form-title PotterFamily
+              p.back-call__form-desc Запрос на обратный звонок
+              +icon('ellipsis')(class='back-call__form-ellipsis')
+              ul.back-call__form-list 
+
+                each item in [{id: 'name', type: 'text', name: 'name', placeholder: 'Ваше имя'}, {id: 'email', type: 'email', name: 'email', placeholder: 'E-mail'}, {id: 'tel', type: 'tel', name: 'tel', placeholder: 'Номер телефона'}]
+                  li.back-call__form-item 
+                    label(for= item.id).back-call__form-label
+                      input(type= item.type id= item.id name= item.name placeholder= item.placeholder).back-call__form-input
+                      span= item.placeholder
+
+              +icon('ellipsis')(class='back-call__form-ellipsis')
+              .back-call__form-box 
+                button.back-call__form-btn отправить
+                p.back-call__form-btn-desc Нажимая на кнопку “отправить” Вы соглашаетесь на обработку персональных данных
+              +icon('ellipsis')(class='back-call__form-ellipsis')
+              +icon('barcode')(class='back-call__form-barcode')
+    
+    //- Footer
+    include common/footer.pug
+              
+
+
 
 
 

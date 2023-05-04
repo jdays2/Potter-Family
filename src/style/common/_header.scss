@@ -13,7 +13,10 @@
     @include flex-center-y();
   }
   &__nav-link,
+  &__nav-open,
+  &__nav-tel,
   &__tel {
+    text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 2rem;
@@ -31,12 +34,10 @@
   }
   &__nav {
     padding: 1.2rem 4rem 0 0;
+    &-open,
     &-close,
     &-tel {
       display: none;
-    }
-    &-link {
-      text-transform: uppercase;
     }
   }
   &__box-right {
@@ -46,6 +47,80 @@
     @include block-size(2.8rem);
     & svg {
       @include block-size(inherit);
+    }
+  }
+  @media (max-width: 48em) {
+    padding: 2.7rem 0;
+    &__logo {
+      @include block-size(32.4rem, 13.9rem);
+      & img {
+        object-fit: contain;
+      }
+    }
+    &__nav {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      @include block-size(100%, 137.8rem);
+      padding: 9.8rem 3.2rem;
+      background-color: var(--black);
+      @include transitions((visibility, opacity));
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      &-list {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 6rem;
+        border-top: 0.2rem solid #7a7883;
+        border-bottom: 0.2rem solid #7a7883;
+        padding: 6rem 0;
+      }
+      &-item {
+        &:not(:last-child) {
+          margin-bottom: 4rem;
+        }
+      }
+      &-open,
+      &-close,
+      &-tel {
+        display: block;
+      }
+      &-link,
+      &-open,
+      &-tel {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
+      &-link,
+      &-tel {
+        color: var(--white);
+      }
+      &-open {
+        margin-top: 1rem;
+      }
+      &-close {
+        position: absolute;
+        top: 3.5rem;
+        right: 3.4rem;
+        @include block-size(3rem);
+        & svg {
+          @include block-size(inherit);
+        }
+      }
+    }
+    &__box-right {
+      padding-top: 0;
+    }
+    &__tel {
+      display: none;
+    }
+    &__basket {
+      margin-right: 2rem;
+      @include block-size(4.8rem);
     }
   }
 }

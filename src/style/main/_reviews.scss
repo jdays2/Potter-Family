@@ -22,7 +22,7 @@
     font-size: 21rem;
     line-height: 25.6rem;
     color: var(--white);
-    animation: marquee 3.5s infinite linear;
+    animation: marquee 15s infinite linear;
     &::after {
       content: '\20'attr(data-content);
     }
@@ -114,7 +114,7 @@
       height: 3.9rem;
       border: 1px solid var(--black);
       border-radius: 30px;
-      padding: 1rem 7.5rem;
+      padding: 1rem 7.6rem;
     }
     &-stars {
       @include flex-center-y();
@@ -123,10 +123,10 @@
       padding-left: 3.6rem;
       border-left: 0.1rem solid var(--black);
       & svg {
-        @include block-size(3.2rem, 2.9rem);
-        margin-top: 0.5rem;
+        @include block-size(3.3rem, 2.9rem);
+        margin-top: 0.8rem;
         &:not(:last-child) {
-          margin-right: 1rem;
+          margin-right: 0.9rem;
         }
         &.active > path {
           fill-opacity: 1;

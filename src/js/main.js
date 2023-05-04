@@ -8,19 +8,27 @@ const bannerVideo = document.getElementById('banner-video');
 
 const observerBanner = new IntersectionObserver(
   ([entry]) => {
-    if (entry.isIntersecting) {
-      bannerBox.classList.add('active');
-      bannerVideo.play();
-    } else {
-      bannerBox.classList.remove('active');
-      bannerVideo.pause();
-    }
+    // if (entry.isIntersecting) {
+    //   bannerBox.classList.add('active');
+    //   bannerVideo.play();
+    // } else {
+    //   bannerBox.classList.remove('active');
+    //   bannerVideo.pause();
+    // }
   },
   {
     threshold: [0.4],
   }
 );
 observerBanner.observe(bannerBox);
+
+window.addEventListener('load', () => {
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    const swiperHero = new Swiper('.hero__content-list', {
+      slidesPerView: 'auto',
+    });
+  }
+});
 
 // Rates
 document.querySelectorAll('.rates__btn').forEach((btn, _, arr) => {
@@ -49,13 +57,9 @@ const swiperPopular = new Swiper('.popular__slider', {
   },
   speed: 1000,
   breakpoints: {
-    1200: {
+    768: {
       slidesPerView: 3,
       slidesPerGroup: 3,
-    },
-    768: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
     },
     320: {
       slidesPerView: 1,
@@ -82,14 +86,13 @@ observerPopular.observe(popularTitle);
 
 // Formats
 const swiperFormats = new Swiper('.formats__slider', {
-  loop: true,
   autoHeight: true,
   speed: 1000,
   breakpoints: {
     768: {
       slidesPerView: 'auto',
       slidesPerGroup: 3,
-      spaceBetween: 60,
+      spaceBetween: '3.4%',
     },
     320: {
       slidesPerView: 1,
@@ -100,17 +103,22 @@ const swiperFormats = new Swiper('.formats__slider', {
 
 // Reviews
 const swiperReviews = new Swiper('.reviews__slider', {
-  loop: true,
   speed: 1000,
   breakpoints: {
     768: {
       slidesPerView: 'auto',
       slidesPerGroup: 2,
-      spaceBetween: 385,
+      spaceBetween: '30%',
     },
     320: {
       slidesPerView: 1,
       slidesPerGroup: 1,
+    },
+  },
+  on: {
+    setTranslate(swiper, transition) {
+      // console.log(swiper);
+      // console.log(swiper.snapGrid, swiper.translate, transition);
     },
   },
 });
