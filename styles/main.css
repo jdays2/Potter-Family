@@ -611,6 +611,16 @@ input[type='number'] {
     font-size: 3.2rem;
     line-height: 4rem;
   }
+
+  .footer__box-top{
+    flex-direction: column;
+  }
+
+  .footer__nav,
+  .footer__contact-item {
+    padding: 0;
+    margin-bottom: 6rem;
+  }
 }
 .rates {
   position: relative;
@@ -1570,4 +1580,28 @@ input[type='number'] {
   margin-top: 2.5rem;
   width: 37.7rem;
   height: 6.7rem;
+}
+
+@media (max-width: 48em){
+  html{
+    font-size: 5px;
+    font-size: 1.5625vw;
+    font-size: 1.3333333333vw;
+    -webkit-text-size-adjust: none;
+  }
+
+  .header__logo--footer{
+    margin-top: 5rem;
+    width: 31.2rem;
+    margin-bottom: 6rem
+  }
+
+  .footer__box-top{
+    padding: 0
+  }
+
+  .footer__nav-title{
+    
+  }
+
 }

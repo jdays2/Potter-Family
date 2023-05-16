@@ -15,9 +15,22 @@ const init = () => {
       iconImageHref: '../img/_contacts/geo-icon.svg', // Путь к изображению кастомного указателя
       iconImageSize: [68, 68], // Размеры изображения указателя
       iconImageOffset: [-16, -32] // Смещение изображения указателя относительно точки координат
-    }
-  );
+    })
 
+    map.controls.remove('geolocationControl');
+    map.controls.remove('searchControl');
+    map.controls.remove('trafficControl');
+    map.controls.remove('typeSelector');
+    map.controls.remove('fullscreenControl');
+    map.controls.remove('zoomControl');
+    map.controls.remove('rulerControl');
+  
+    // Другие опции карты
+    map.options.set({
+      suppressMapOpenBlock: true, // Удаление блока с кнопкой "Открыть в Яндекс.Картах"
+      suppressObsoleteBrowserNotifier: true // Отключение уведомления о устаревшем браузере
+    })
+    
   map.geoObjects.add(customIcon);
 };
 
