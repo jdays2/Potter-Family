@@ -1,0 +1,135 @@
+@font-face {
+  font-family: Gotham;
+  src: url(../../fonts/Gotham-book.woff2) format("woff2"), url(../../fonts/Gotham-book.woff) format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-medium.woff2) format("woff2"), url(../fonts/Montserrat-medium.woff) format("woff");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-regular.woff2) format("woff2"), url(../fonts/Montserrat-regular.woff) format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Gotham, sans-serif;
+  font-size: 0.5208335vw;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-animation: 1s infinite bugfix;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  object-fit: contain;
+}
+
+.portfolio {
+  padding-top: 3rem;
+  padding-bottom: 23.8rem;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio__header {
+  margin: 0 auto;
+  width: 156rem;
+  display: flex;
+  gap: 9.1rem;
+  margin-bottom: 5rem;
+  align-items: flex-end;
+}
+.portfolio__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 6rem;
+  line-height: 7.3rem;
+  color: #434248;
+}
+.portfolio__subtitle {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin-bottom: 1rem;
+  width: 45rem;
+}
+.portfolio__list-wrapper {
+  border: 0.05rem solid #434248;
+  border-left: 0;
+  border-right: 0;
+}
+.portfolio__list {
+  width: 156.4rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  background-color: #434248;
+  border-left: 0.05rem solid #434248;
+  border-right: 0.05rem solid #434248;
+}
+.portfolio .item {
+  width: 52rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: white;
+}
+.portfolio .item__info {
+  margin-top: 3rem;
+  width: 46rem;
+  margin-bottom: 7.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.portfolio .item__type {
+  margin-right: 2rem;
+  color: rgba(67, 66, 72, 0.5);
+}
+.portfolio .item__type--amount {
+  margin-right: 0rem;
+}
+.portfolio .item__date {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  color: #434248;
+}
+.portfolio .item__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 9.6rem;
+  margin-left: 3rem;
+}
+.portfolio .item__img {
+  width: 46rem;
+  margin-bottom: 3rem;
+}/*# sourceMappingURL=portfolio.css.map */
